@@ -1,12 +1,12 @@
 git
 vim
 tmux
-curl
 python2.7
 python3
 netcat
 nmap
 hashcat
+hydra
 tcpdump
 wireshark
 proxychains
