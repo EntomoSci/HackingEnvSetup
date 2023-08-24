@@ -11,3 +11,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 
 Write-Host "Updating Chocolatey package manager..."
 choco upgrade chocolatey -y
+
+# NOTE: Instead of iterating over the tools line by line, they are stacked together in one line replacing Windows/Linux/Unix-like new lines
+# characters into spaces to let choco do the parsing in one call.
+Write-Host "Installing essential tools..."
+$toolsURL = "https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Windows/Tools.txt"
+$tools = (iwr -Uri $toolsURL) -replace '\n|`r`n|`n', ' '
+choco install $tools
