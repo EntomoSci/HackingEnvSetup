@@ -1,3 +1,4 @@
+microsoft-windows-terminal
 git
 helix
 vscode
