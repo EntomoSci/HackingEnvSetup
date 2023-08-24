@@ -11,7 +11,7 @@ source ~/.bashrc
 echo "Done!"
 
 # Installing esential tools.
-toolsURL="https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Tools.list"
+toolsURL="https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Linux/Tools.list"
 tools=$(curl -s $toolsURL)
 echo "Installing esential tools..."
 for tool in $tools
