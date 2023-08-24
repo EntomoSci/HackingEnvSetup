@@ -20,3 +20,8 @@ Write-Host "Installing essential tools from remote list..."
 $toolsURL = "https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Windows/Tools.txt"
 $tools = (iwr -Uri $toolsURL).Content.Trim() -split '\n|`r`n|`n'
 choco install $tools -y
+
+# NOTE: The import made below is required for "RefreshEnv".
+Write-Host "Refreshing environment..."
+Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
+RefreshEnv
