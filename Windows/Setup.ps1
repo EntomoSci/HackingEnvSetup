@@ -25,3 +25,16 @@ choco install $tools -y
 Write-Host "Refreshing environment..."
 Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
 RefreshEnv
+
+# NOTE: Due to path wildcard expansion and evaluation conflicts with "Resolve-Path" and "[System.Environment]::ExpandEnvironmentVariables($pathLine)"
+# and detection issues of $HOME, I approach the resolution of the home path as a simple replacement of '~' character with the home path.
+# Paths MUST NOT use '~' in its directory/file names because of this replacement.
+Write-Host "Excluding paths storing installed tools to bypass undesirable Windows Defender blocks..."
+$exclusionPathsURL = "https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Windows/ExclusionPaths.txt"
+$homePath = [System.Environment]::GetFolderPath("UserProfile")
+$exclusionPaths = (iwr -Uri $exclusionPathsURL).Content.Trim() -replace '~', $homePath
+foreach ($path in $exclusionPaths) {
+  $path = $path.Trim()
+  Write-Host "Excluding $path..."
+  Add-MpPreference -ExclusionPath $path
+}
