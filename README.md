@@ -22,7 +22,11 @@ Open a command prompt and update your powershell to support modern syntax presen
 ```cmd
 winget install --id Microsoft.Powershell --source winget
 ```
-Open a powershell session as administrator and update the system with the dedicated script:
+Open a powershell session as administrator and download the script to update the system:
 ```powershell
-iwr -Uri 'https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Windows/Update.ps1' -OutFile 'Update.ps1' && .\Update.ps1
+iwr -Uri 'https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Windows/Update.ps1' -OutFile 'WindowsUpdate.ps1'
+```
+Verify the integrity of the script and execute it afterwards:
+```powershell
+.\WindowsUpdate.ps1
 ```
