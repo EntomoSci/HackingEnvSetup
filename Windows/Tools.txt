@@ -1,0 +1,7 @@
+git
+helix
+vscode
+python
+wsl2
+openssh
+openvpn
