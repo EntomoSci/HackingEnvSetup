@@ -5,6 +5,6 @@ Write-Host "Beginning Windows environment setup"
 # directly usage isn't recommended by Microsoft (https://learn.microsoft.com/en-us/dotnet/api/system.net.webclient?view=net-7.0#remark).
 # I choosen an user-friendly interface of higher level for a simple process here.
 Write-Host "Installing Chocolatey package manager from official installation script..."
-Set-ExecutionPolicy Bypass -Scope Process -Force && `
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072 && `
+Set-ExecutionPolicy Bypass -Scope Process -Force
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 (iwr -Uri 'https://community.chocolatey.org/install.ps1').Content | iex
