@@ -18,8 +18,11 @@ source ./Setup.sh
 ```
 
 ### For Windows environments
+Open a command prompt and update your powershell to support modern syntax present in commands used:
+```cmd
+winget install --id Microsoft.Powershell --source winget
+```
 Open a powershell session as administrator and update the system with the dedicated script:
 ```powershell
-iwr -Uri 'https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Windows/Update.ps1' -OutFile 'Update.ps1' && \
-./Update.ps1
+iwr -Uri 'https://raw.githubusercontent.com/typ1st/HackingEnvSetup/main/Windows/Update.ps1' -OutFile 'Update.ps1' && .\Update.ps1
 ```
