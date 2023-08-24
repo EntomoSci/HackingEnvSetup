@@ -8,3 +8,6 @@ Write-Host "Installing Chocolatey package manager from official installation scr
 Set-ExecutionPolicy Bypass -Scope Process -Force
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072
 (iwr -Uri 'https://community.chocolatey.org/install.ps1').Content | iex
+
+Write-Host "Updating Chocolatey package manager..."
+choco upgrade chocolatey -y
